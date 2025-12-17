@@ -9,10 +9,11 @@ class Destination extends Model
     public $timestamps = false; // <--- tambahkan ini
 
     protected $fillable = [
-        'name',
+        'title',
+        'slug',
         'description',
-        'category',
-        'location',
+        'price',
         'image',
+        'category',
     ];
 }

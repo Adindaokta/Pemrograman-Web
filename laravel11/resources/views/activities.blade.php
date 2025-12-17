@@ -67,5 +67,76 @@
         </a>
 
     </div>
-</div>
-@endsection
+    </div> 
+    <div class="border-t border-gray-200 my-10"></div>
+
+
+    <div class="mb-12">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-extrabold text-gray-900">Semua Petualangan Kami</h2>
+            <p class="text-gray-600 mt-2">Temukan paket healing terbaik yang telah kami kurasi untuk Anda.</p>
+        </div>
+
+        @if($destinations->isEmpty())
+            <div class="text-center py-10 bg-gray-50 rounded-xl border border-dashed border-gray-300">
+                <p class="text-gray-500 italic text-lg">Belum ada paket perjalanan yang tersedia saat ini.</p>
+            </div>
+        @else
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                @foreach($destinations as $destination)
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col">
+                        
+                        <div class="relative h-56">
+                            <img src="{{ asset('storage/' . $destination->image) }}" 
+                                 alt="{{ $destination->name }}" 
+                                 class="w-full h-full object-cover">
+                            
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-sm
+                                    {{ $destination->category == 'hiking' ? 'bg-green-100 text-green-800' : 
+                                      ($destination->category == 'camping' ? 'bg-yellow-100 text-yellow-800' : 'bg-blue-100 text-blue-800') }}">
+                                    {{ $destination->category }}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="p-6 flex-1 flex flex-col">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2 line-clamp-1">
+                                {{ $destination->name }}
+                            </h3>
+                            
+                            {{-- Deskripsi Singkat (strip_tags untuk keamanan, limit 100 karakter) --}}
+                            <p class="text-gray-600 text-sm mb-4 line-clamp-2 flex-1">
+                                {{ Str::limit(strip_tags($destination->description), 100) }}
+                            </p>
+
+                            <div class="border-t border-gray-100 pt-4 mt-auto">
+                                <div class="flex justify-between items-center mb-4">
+                                    <div class="text-indigo-600 font-bold text-lg">
+                                        Rp {{ number_format($destination->price, 0, ',', '.') }}
+                                    </div>
+                                    <div class="text-gray-500 text-xs flex items-center">
+                                        <i class="fa-solid fa-user mr-1"></i> / pax
+                                    </div>
+                                </div>
+
+                                <a href="{{ route('destinations.show', $destination->id) }}" 
+                                   class="block w-full py-2 px-4 bg-gray-900 hover:bg-indigo-600 text-white text-center font-semibold rounded-lg transition duration-300">
+                                    Lihat Detail
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="mt-10">
+                {{-- Cek apakah variabel memiliki method links (berarti hasil pagination) --}}
+                @if(method_exists($destinations, 'links'))
+                    {{ $destinations->links() }}
+                @endif
+            </div>
+        @endif
+    </div>
+
+</div> @endsection

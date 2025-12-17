@@ -17,7 +17,7 @@
                 <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
                     <img src="{{ asset('storage/' . $destination->image) }}" alt="{{ $destination->name }}" class="w-full h-56 object-cover">
                     <div class="p-5">
-                        <h2 class="text-xl font-semibold mb-2">{{ $destination->name }}</h2>
+                        <h2 class="text-black text-xl font-semibold mb-2 block leading-tight">{{ $destination->title ?? 'Nama Tidak Tersedia' }}</h2>
                         <p class="text-gray-600 text-sm mb-3 line-clamp-2">{{ $destination->description }}</p>
                         <p class="text-sm text-gray-500 mb-3"><i class="fa-solid fa-location-dot"></i> {{ $destination->location }}</p>
                         <a href="{{ route('destinations.show', $destination->id) }}" class="inline-block px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">

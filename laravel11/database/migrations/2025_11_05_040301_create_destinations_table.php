@@ -6,31 +6,23 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
+        // Pastikan nama tabelnya 'destinations'
         Schema::create('destinations', function (Blueprint $table) {
-            $table->string('Nama');
-            $table->string('Definisi');
-            $table->string('Lokasi');
-            $table->string('Kategori');
-            $table->string('Tinggi');
-
-
+            $table->id();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->text('description');
+            $table->decimal('price', 12, 2);
+            $table->string('image')->nullable();
+            $table->enum('category', ['hiking', 'trekking', 'camping']); // Kolom penting!
+            $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('destinations');
     }
-
 };
-
-
- $table->timestamps();

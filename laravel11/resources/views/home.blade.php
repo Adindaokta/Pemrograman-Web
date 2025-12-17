@@ -19,7 +19,7 @@
 
             <nav class="hidden md:flex space-x-6">
                 <a href="#home" class="hover:text-indigo-400 transition">Home</a>
-                <a href="#activities" class="hover:text-indigo-400 transition">Kegiatan</a>
+                <a href="activities" class="hover:text-indigo-400 transition">Kegiatan</a>
                 <a href="#blog" class="hover:text-indigo-400 transition">Blog</a>
                 <a href="#about" class="hover:text-indigo-400 transition">Tentang</a>
                 <a href="#contact" class="hover:text-indigo-400 transition">Kontak</a>
@@ -113,7 +113,7 @@
 
             <div class="flex justify-center space-x-6 md:space-x-12">
 
-                <a href="#" class="flex flex-col items-center text-gray-200 hover:text-white transition group">
+                <a href="{{ route('destinations.index', ['category' => 'hiking']) }}" class="flex flex-col items-center text-gray-200 hover:text-white transition group">
                     <div class="p-5 bg-white bg-opacity-10 rounded-xl mb-3 group-hover:bg-opacity-20 transition">
                         <svg class="w-10 h-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-6.364-.386 1.591-1.591M3 12H5.25m.386-6.364 1.591 1.591M12 12a2.25 2.25 0 0 0-2.25 2.25c0 1.35.54 2.56 1.386 3.465a.449.449 0 0 0 .628 0c.846-.905 1.386-2.115 1.386-3.465A2.25 2.25 0 0 0 12 12Z" />
@@ -122,7 +122,7 @@
                     <span class="text-sm font-medium">Hiking</span>
                 </a>
 
-                <a href="#" class="flex flex-col items-center text-gray-200 hover:text-white transition group">
+                <a href="{{ route('destinations.index', ['category' => 'trekking']) }}" class="flex flex-col items-center text-gray-200 hover:text-white transition group">
                     <div class="p-5 bg-white bg-opacity-10 rounded-xl mb-3 group-hover:bg-opacity-20 transition">
                         <svg class="w-10 h-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.5-13.5H18M18 21h-5.25M6 18V6.75M3 12h18" />
@@ -131,7 +131,7 @@
                     <span class="text-sm font-medium">Trekking</span>
                 </a>
 
-                <a href="#" class="flex flex-col items-center text-gray-200 hover:text-white transition group">
+                <a href="{{ route('destinations.index', ['category' => 'camping']) }}" class="flex flex-col items-center text-gray-200 hover:text-white transition group">
                     <div class="p-5 bg-white bg-opacity-10 rounded-xl mb-3 group-hover:bg-opacity-20 transition">
                         <svg class="w-10 h-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25L3 7.5m18 0v9l-9 5.25-9-5.25V7.5M3 16.5l9-5.25 9 5.25" />
